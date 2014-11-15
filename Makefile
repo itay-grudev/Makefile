@@ -36,14 +36,14 @@ SRCEXTS = .c .C .cc .cpp .CPP .c++ .cxx .cp
 SOURCES = $(foreach d,$(SRCDIRS),$(wildcard $(addprefix $(d)/*,$(SRCEXTS))))
 OBJECTS = $(addprefix $(OBJDIR), $(SOURCES:.cpp=.o))
 
-# Default build #
-# Can be changed when invocating 'make' using the '-e BUILD=???' argument #
+# Default build
+# Can be changed when invocating 'make' using the '-e BUILD=???' argument
 BUILD = debug
 
-# Compiler command #
+# Compiler command
 CC = g++
 
-# Initial flags (are added to the compile command first) #
+# Initial flags (are added to the compile command first)
 # You might need CCFLAGS -I /usr/local/include/
 CCFLAGS = -Wall -pedantic -std=c++11
 # You might need LDFLAGS = -L /usr/local/lib/
@@ -51,21 +51,21 @@ LDFLAGS =
 
 EXECUTABLE = $(BINDIR)$(EXECNAME)
 
-# Check for debug or not #
+# Check for debug or not
 ifeq ($(BUILD),debug)
 	CCFLAGS += -g
 else
 	CCFLAGS += -O2
 endif
 
-# Check if we need to make a seperate bin folder #
+# Check if we need to make a seperate bin folder
 ifneq ($(BINDIR), )
 	BINDIRCOMMAND = mkdir -p $(BINDIR)
 else
 	BINDIRCOMMAND =
 endif
 
-# Check if we need to make a seperate obj folder and it's subfolder structure #
+# Check if we need to make a seperate obj folder and it's subfolder structure
 ifneq ($(OBJDIR), )
 	OBJDIRCOMMAND = mkdir -p $(OBJDIR)
 	OBJDIRCOMMAND += $(foreach d,$(SRCDIRS), $(OBJDIR)$(d))
@@ -73,12 +73,12 @@ else
 	OBJDIRCOMMAND =
 endif
 
-# Insert linker and compiler arguments here #
+# Insert linker and compiler arguments here
 # Example LDFLAGS += -lsomelib
 CCFLAGS +=
 LDFLAGS +=
 
-# Building recipies #
+# Building recipies
 all: $(SOURCES) $(EXECUTABLE)
 
 run:
@@ -96,7 +96,7 @@ objdir:
 $(OBJECTS) : $(OBJDIR)%.o : $(SRCDIR)%.cpp
 	$(CC) $(CCFLAGS) $(LDFLAGS) -c -o $@ $<
 
-# Cleaning recipies #
+# Cleaning recipies
 clean: clean-bin clean-obj
 
 clean-bin:
