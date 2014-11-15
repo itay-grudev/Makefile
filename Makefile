@@ -19,6 +19,10 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
+#
+# Based on a Makefile written by Ivan Tabashki, published under WTF Public
+# License, with minor modifications and improvments.
+#
 
 # Basic Setup
 EXECNAME = bin
