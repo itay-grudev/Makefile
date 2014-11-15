@@ -65,7 +65,7 @@ else
 	BINDIRCOMMAND =
 endif
 
-# Check if we need to make a seperate obj folder and it's subfolder structure
+# Check if we need to make a seperate obj folder and its subfolder structure
 ifneq ($(OBJDIR), )
 	OBJDIRCOMMAND = mkdir -p $(OBJDIR)
 	OBJDIRCOMMAND += $(foreach d,$(SRCDIRS), $(OBJDIR)$(d))
