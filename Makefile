@@ -53,6 +53,11 @@ CCFLAGS = -Wall -pedantic -std=c++11
 # You might need LDFLAGS = -L /usr/local/lib/
 LDFLAGS =
 
+# Insert linker and compiler arguments here
+# Example LDFLAGS += -lsomelib
+CCFLAGS +=
+LDFLAGS +=
+
 EXECUTABLE = $(BINDIR)$(EXECNAME)
 
 # Check for debug or not
@@ -76,11 +81,6 @@ ifneq ($(OBJDIR), )
 else
 	OBJDIRCOMMAND =
 endif
-
-# Insert linker and compiler arguments here
-# Example LDFLAGS += -lsomelib
-CCFLAGS +=
-LDFLAGS +=
 
 # Building recipies
 all: $(SOURCES) $(EXECUTABLE)
